@@ -46,11 +46,6 @@ export const graphics = (function() {
       target.appendChild(this._threejs.domElement);
 
       this._stats = new Stats();
-      //target.appendChild(this._stats.dom);
-
-      window.addEventListener('resize', () => {
-        this._OnWindowResize();
-      }, false);
 
       const fov = 60;
       const aspect = 1920 / 1080;
@@ -79,12 +74,6 @@ export const graphics = (function() {
       light.target.position.set(0, 0, 0);
       light.castShadow = false;
       this._scene.add(light);
-    }
-
-    _OnWindowResize() {
-      this._camera.aspect = window.innerWidth / window.innerHeight;
-      this._camera.updateProjectionMatrix();
-      this._threejs.setSize(window.innerWidth, window.innerHeight);
     }
 
     get Scene() {
