@@ -1,7 +1,4 @@
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.112.1/build/three.module.js';
-import {WEBGL} from 'https://cdn.jsdelivr.net/npm/three@0.112.1/examples/jsm/WebGL.js';
 import {graphics} from './graphics.js';
-
 
 export const game = (function() {
   return {
@@ -20,7 +17,6 @@ export const game = (function() {
         this._previousRAF = null;
         this._minFrameTime = 1.0 / 10.0;
         this._entities = {};
-
         this._OnInitialize();
         this._RAF();
       }
@@ -48,11 +44,9 @@ export const game = (function() {
 
       _Render(timeInMS) {
         const timeInSeconds = Math.min(timeInMS * 0.001, this._minFrameTime);
-
         this._OnStep(timeInSeconds);
         this._StepEntities(timeInSeconds);
         this._graphics.Render(timeInSeconds);
-
         this._RAF();
       }
     }
