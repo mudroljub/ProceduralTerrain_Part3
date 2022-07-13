@@ -1,19 +1,11 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.112.1/build/three.module.js';
-import {GUI} from 'https://cdn.jsdelivr.net/npm/three@0.112.1/examples/jsm/libs/dat.gui.module.js';
-import {controls} from './controls.js';
-import {game} from './game.js';
-import {sky} from './sky.js';
-import {terrain} from './terrain.js';
-
-
-let _APP = null;
-
+import { GUI } from 'https://cdn.jsdelivr.net/npm/three@0.112.1/examples/jsm/libs/dat.gui.module.js';
+import { game } from './game.js';
+import { sky } from './sky.js';
+import { terrain } from './terrain.js';
 
 
 class ProceduralTerrain_Demo extends game.Game {
-  constructor() {
-    super();
-  }
 
   _OnInitialize() {
     this._CreateGUI();
@@ -34,12 +26,6 @@ class ProceduralTerrain_Demo extends game.Game {
       gui: this._gui,
       guiParams: this._guiParams,
     });
-
-    this._entities['_controls'] = new controls.FPSControls(
-      {
-        scene: this._graphics.Scene,
-        camera: this._userCamera
-      });
 
     this._graphics.Camera.position.copy(this._userCamera.position);
 
@@ -68,8 +54,4 @@ class ProceduralTerrain_Demo extends game.Game {
 }
 
 
-function _Main() {
-  _APP = new ProceduralTerrain_Demo();
-}
-
-_Main();
+new ProceduralTerrain_Demo();
